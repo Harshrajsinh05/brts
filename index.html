@@ -1,0 +1,194 @@
+<html>
+    <head>
+        <style>
+            #d1{
+                border-radius: 3%;
+                background-color: rgb(195, 255, 255);
+                border: solid;
+                border-color: rgb(190, 250, 250);
+                width: 500px;
+                height: 900px;
+            }
+            #d2{
+                border-radius: 5%;
+                background-color: white;
+                border: solid;
+                border-color: white;
+                height:230px;
+                width:400px;
+                position: relative;
+                left:50px;
+            }
+            #Har{
+                position: relative;
+                left:15px;
+            }
+            #San{
+                position: relative;
+                left:15px;
+            }
+            #d3{
+                border-radius: 5%;
+                background-color:rgb(1, 166, 221);
+                border: solid;
+                border-color: rgb(1, 166, 221);
+                height:50px;
+                width:300px;
+                position: relative;
+                left:50px;
+                top:-50px;
+            }
+            #i1{
+                border-radius: 50%;
+                height:100px;
+                width:100px;
+                position: relative;
+                left:200px;
+                top:50px;
+            }
+            #i2{
+                border-radius: 100%;
+                border-color: rgb(166, 251, 251);
+                height:60px;
+                width:60px;
+                position: relative;
+                left:20px;
+                top:10px;
+            }
+            #p{
+                position: relative;
+                left:80px;
+                height:70px;
+                width:100px
+            }
+            #m{
+                border-radius: 30%;
+                position: relative;
+                height:80px;
+                width:100px;
+                left:205px
+            }
+            #das{
+                color:gray;
+            }
+            #countdown {
+            font-size: 40;
+            font-weight: bold;
+            color:black;
+            position: relative;
+            left:100px;
+            top:-20px;
+            }
+            #time{
+                position: relative;
+                top:-50;
+                left:75px;
+            }
+            #H1{
+                position: relative;
+                top: 5px;
+                left: 5px;
+            }
+            #M1{
+                font-size: 1em;
+                position: relative;
+                top: 5px;
+                left: 15px;
+            }
+            #S1{
+                position: relative;
+                top: 5px;
+                left: 20px;
+            }
+            
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    
+    </head>
+    <body>
+
+        <svg width="100" height="50">
+            <line x1="15" y1="15" x2="40" y2="15" stroke="black"></line>
+            <line x1="15" y1="15" x2="25" y2="25" stroke="black"></line>
+            <line x1="15" y1="15" x2="25" y2="5" stroke="black"></line> 
+        </svg>
+
+        <img src="Paytm-Logo.jpg" id="p">
+    
+        <div id="d1">
+            <img src="janmarglogo.jpg" id="i1"><br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <font size="6" face="Arial"><b id="Har">Haridarsha...</b></font>
+                <svg width="70" height="50">
+                    <line x1="35" y1="35" x2="60" y2="35" stroke="black"></line>
+                    <line x1="60" y1="35" x2="45" y2="25" stroke="black"></line>
+                    <line x1="60" y1="35" x2="45" y2="45" stroke="black"></line> 
+                </svg>
+            <font size="6" face="Arial"><b id="San">Sanand Cir...</b></font>
+            <br>
+            <pre><font size="4" face="Arial">                                                AC         </font></pre>
+            <pre><font size="4" face="Arial">                                      1 Adult Ticket         </font></pre>
+            <br>
+            <img src="1.jpeg" id="m">
+            <pre><font size="8" face="Arial">               <b>₹30</b><img src="green.png" id="i2">       </font></pre>
+            <p align="center">
+                <font face="Arial"><B>TICKET BOOKED SUCCESSFULLY</B></font>
+            </p>
+            <p align="center">
+                <font face="Arial">04 Jan 2024, 6:50 AM</font>
+            </p>
+            <p id="das">---------------------------------------------------------------------------------------------</p>
+            <div id="d2">
+                <p align="center"><font face="arial"><b>Your ticket is valid for</b></font></p>
+                <p id="countdown">
+                   <b> 01 : 10 : 40</b>
+                </p>
+                <p id="time">
+                         <b id="H1"> HOURS</b> <b id="M1">MINUTES</b> <b id="S1">SECONDS</b>
+                </p>
+                <div id="d3">
+                    <p align="center"><font face="arial" color="White"><b>Your ticket is valid for</b></font></p>
+                </div>
+            </div>
+        </div>
+        <script>
+            function updateCountdown() {
+            var countdownElement = document.getElementById('countdown');
+            var timeString = countdownElement.innerText;
+            var timeArray = timeString.split(':');
+    
+            var hours = parseInt(timeArray[0]);
+            var minutes = parseInt(timeArray[1]);
+            var seconds = parseInt(timeArray[2]);
+
+            var totalSeconds = hours * 3600 + minutes * 60 + seconds - 1;
+
+            if (totalSeconds >= 0) {
+            hours = Math.floor(totalSeconds / 3600);
+            minutes = Math.floor((totalSeconds % 3600) / 60);
+            seconds = totalSeconds % 60;
+
+            hours = hours < 10 ? '0' + hours : hours;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+
+            countdownElement.innerText = hours + ' : ' + minutes + ' : ' + seconds;
+            setTimeout(updateCountdown, 1000);
+            } else {
+            countdownElement.innerText = '00:00:00';
+        }
+        }
+
+    // Call the function to start the countdown
+        updateCountdown();
+        </script>
+    </body>
+</html>
